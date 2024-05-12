@@ -1,5 +1,5 @@
 {% set name = "slcwindinversion" %}
-{% set version = "2023.10.post3" %}
+{% set version = "2024.2.post1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/slcwindinversion-{{ version }}.tar.gz
-  sha256: 23072dc836de5ddfe77bf875345af0bb04d896c8ee7aa6380bbba2ccea3e9dc7
+  sha256: fb80c864f35d6416388eaf87f691493fa870adbd40d9b48d5c9818d61e23a9a2
 
 build:
   entry_points:
