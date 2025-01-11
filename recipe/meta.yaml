@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/slcwindinversion-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/slcwindinversion-{{ version }}.tar.gz
   sha256: 23072dc836de5ddfe77bf875345af0bb04d896c8ee7aa6380bbba2ccea3e9dc7
 
 build:
@@ -14,16 +14,16 @@ build:
     - slcwindinversion = slcwindinversion.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=64.0
     - setuptools-scm
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - scipy
     - xsarsea
     - xarray
@@ -39,6 +39,7 @@ test:
     - slcwindinversion --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Python library to generate Level-2A wind speed products from intermediate Sentinel-1 TOPS SLC-derived products.
